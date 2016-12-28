@@ -21,12 +21,17 @@
 </template>
 
 <script>
+import jsrsasign from 'jsrsasign';
+
 export default {
   name: 'hello',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  mounted() {
+    console.log(jsrsasign);
   }
 }
 </script>
