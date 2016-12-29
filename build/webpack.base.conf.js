@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
@@ -12,7 +14,8 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
   entry: {
-    app: './src/main.js'
+    app: './src/main.js',
+    style: './src/app.scss'
   },
   output: {
     path: config.build.assetsRoot,
@@ -32,6 +35,12 @@ module.exports = {
   resolveLoader: {
     fallback: [path.join(__dirname, '../node_modules')]
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      "jsonlint": "src/utils/jsonlint",
+      "window.jsonlint": "src/utils/jsonlint"
+    })
+  ],
   module: {
     loaders: [
       {
@@ -47,6 +56,14 @@ module.exports = {
       {
         test: /\.json$/,
         loader: 'json'
+      },
+      {
+        test: /\.scss$/,
+        loader: 'sass'
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug'
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -72,6 +89,26 @@ module.exports = {
       require('autoprefixer')({
         browsers: ['last 2 versions']
       })
-    ]
+    ],
+    template: {
+        doctype: 'html',
+        filters: function () {
+            let space = (_, opts = {}) => {
+                if (opts.size) {
+                    return `<span style="width: ${opts.size}px; display: inline-block;"></span>`;
+                }
+
+                return "&nbsp;";
+            };
+
+            return {
+                space,
+                spc: space,
+                sp: space,
+                s: space,
+                gap: space
+            }
+        }()
+    }
   }
 }

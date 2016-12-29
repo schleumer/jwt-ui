@@ -1,28 +1,25 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
-  </div>
+<template lang="pug">
+  div
+    nav.navbar.navbar-light.bg-faded
+      a.navbar-brand(href="#") JWT shit
+      //- ul.nav.navbar-nav
+      //-   li.nav-item.active
+      //-     a.nav-link(href="javascript:;") Home
+    .container-fluid(style="margin-top: 15px;")
+      #app
+        home
 </template>
 
 <script>
-import Hello from './components/Hello'
+import Home from './components/Home'
 
 export default {
   name: 'app',
   components: {
-    Hello
+    Home
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

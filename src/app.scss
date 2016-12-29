@@ -1,0 +1,29 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import "~codemirror/lib/codemirror.css";
+@import "~codemirror/theme/monokai.css";
+@import "~codemirror/theme/night.css";
+@import "~codemirror/theme/base16-dark.css";
+@import "~codemirror/theme/base16-light.css";
+@import "~codemirror/theme/yeti.css";
+@import "~codemirror/addon/lint/lint.css";
+
+.CodeMirror {
+    zoom: 1;
+    font-family: 'Roboto Mono', Menlo;
+    outline: none;
+    height: auto;
+}
+
+.CodeMirror .cm-jwt-dot {
+    color: #FD971F
+}
+.CodeMirror .cm-jwt-header {
+    color: #F92672
+}
+.CodeMirror .cm-jwt-payload {
+    color: #A6E22E
+}
+.CodeMirror .cm-jwt-signature {
+    color: #66D9EF
+}

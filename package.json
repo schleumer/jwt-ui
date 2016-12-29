@@ -9,6 +9,15 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "bootstrap": "4.0.0-alpha.5",
+    "codemirror": "^5.22.0",
+    "crypto-js": "^3.1.9-1",
+    "jshint": "^2.9.4",
+    "jsrsasign": "^7.0.0",
+    "node-sass": "^4.1.1",
+    "pug": "^2.0.0-beta6",
+    "pug-loader": "^2.3.0",
+    "sass-loader": "^4.1.1",
     "vue": "^2.1.0"
   },
   "devDependencies": {
